@@ -1,0 +1,4 @@
+iex -S server
+
+alias GenTcpAndRpc.ServerInteracPy
+ServerInteracPy.start_server()
