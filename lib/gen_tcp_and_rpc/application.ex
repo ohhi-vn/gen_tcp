@@ -7,7 +7,16 @@ defmodule GenTcpAndRpc.Application do
 
   @impl true
   def start(_type, _args) do
+
+    topologies = [
+      example: [
+        strategy: Cluster.Strategy.Epmd,
+        config: [hosts: [:"a@localhost", :"b@localhost"]]
+      ]
+    ]
+
     children = [
+      {Cluster.Supervisor, [topologies, [name: GenTcpAndRpc.ClusterSupervisor]]},
       # Starts a worker by calling: GenTcpAndRpc.Worker.start_link(arg)
       # {GenTcpAndRpc.Worker, arg}
       # %{id: GenTcpAndRpc.Server, start: {GenTcpAndRpc.Server, :start_link, [[]]}}
