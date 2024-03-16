@@ -9,3 +9,9 @@ python3 client_py.py
 PORT=4000 iex --sname a@localhost --cookie abc -S mix
 PORT=4001 iex --sname b@localhost --cookie abc -S mix
 PORT=4002 iex --sname c@localhost --cookie abc -S mix
+
+
+alias GenTcpAndRpc.Client
+
+Client.send_to_server("Hello")
+Client.close_socket()

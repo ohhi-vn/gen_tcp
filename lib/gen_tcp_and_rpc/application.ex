@@ -19,8 +19,9 @@ defmodule GenTcpAndRpc.Application do
       {Cluster.Supervisor, [topologies, [name: GenTcpAndRpc.ClusterSupervisor]]},
       # Starts a worker by calling: GenTcpAndRpc.Worker.start_link(arg)
       # {GenTcpAndRpc.Worker, arg}
-      # %{id: GenTcpAndRpc.Server, start: {GenTcpAndRpc.Server, :start_link, [[]]}}
-      # %{id: GenTcpAndRpc.Client, start: {GenTcpAndRpc.Client, :start_link, [[]]}}
+
+      %{id: GenTcpAndRpc.Server, start: {GenTcpAndRpc.Server, :start_link, [[]]}},
+      %{id: GenTcpAndRpc.Client, start: {GenTcpAndRpc.Client, :start_link, [[]]}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
