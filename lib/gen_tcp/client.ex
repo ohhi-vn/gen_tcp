@@ -1,4 +1,4 @@
-defmodule GenTcpAndRpc.Client do
+defmodule GenTcp.Client do
   use GenServer
   require Logger
 

@@ -20,7 +20,7 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-gen_tcp_and_rpc-*.tar
+gen_tcp-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/

@@ -1,6 +1,6 @@
-defmodule GenTcpAndRpc do
+defmodule GenTcp do
   @moduledoc """
-  Documentation for `GenTcpAndRpc`.
+  Documentation for `GenTcp`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule GenTcpAndRpc do
 
   ## Examples
 
-      iex> GenTcpAndRpc.hello()
+      iex> GenTcp.hello()
       :world
 
   """

@@ -1,4 +1,4 @@
-defmodule GenTcpAndRpc.ServerInteracPy do
+defmodule GenTcp.ServerInteracPy do
   require Logger
 
   @port 8080

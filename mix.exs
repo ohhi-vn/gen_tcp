@@ -1,9 +1,9 @@
-defmodule GenTcpAndRpc.MixProject do
+defmodule GenTcp.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :gen_tcp_and_rpc,
+      app: :gen_tcp,
       version: "0.1.0",
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule GenTcpAndRpc.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {GenTcpAndRpc.Application, []}
+      mod: {GenTcp.Application, []}
     ]
   end
 

@@ -1,4 +1,4 @@
-defmodule GenTcpAndRpc.Application do
+defmodule GenTcp.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -16,17 +16,17 @@ defmodule GenTcpAndRpc.Application do
     ]
 
     children = [
-      {Cluster.Supervisor, [topologies, [name: GenTcpAndRpc.ClusterSupervisor]]},
-      # Starts a worker by calling: GenTcpAndRpc.Worker.start_link(arg)
-      # {GenTcpAndRpc.Worker, arg}
+      {Cluster.Supervisor, [topologies, [name: GenTcp.ClusterSupervisor]]}
+      # Starts a worker by calling: GenTcp.Worker.start_link(arg)
+      # {GenTcp.Worker, arg}
 
-      %{id: GenTcpAndRpc.Server, start: {GenTcpAndRpc.Server, :start_link, [[]]}},
-      %{id: GenTcpAndRpc.Client, start: {GenTcpAndRpc.Client, :start_link, [[]]}}
+      # %{id: GenTcp.Server, start: {GenTcp.Server, :start_link, [[]]}},
+      # %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: GenTcpAndRpc.Supervisor]
+    opts = [strategy: :one_for_one, name: GenTcp.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

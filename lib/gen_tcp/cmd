@@ -1,0 +1,12 @@
+iex -S server
+
+alias GenTcp.ServerInteracPy
+ServerInteracPy.start_server()
+
+python3 client_py.py
+
+
+alias GenTcp.Client
+
+Client.send_to_server("Hello")
+Client.close_socket()

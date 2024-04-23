@@ -12,6 +12,9 @@ while True:
   print('Client receive: ' + data.decode())
   st = 'Hello from client'
   byt = st.encode('ascii')
+  s.sendall(byt)
+
   time.sleep(5)
+  print('Client close socket')
   s.close()
   break
