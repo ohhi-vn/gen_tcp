@@ -1,21 +1,50 @@
-# GenTcp
+# Gen_tcp
 
-**TODO: Add description**
+## First Example
 
-## Installation
+Both Client and Server is run on Elixir service.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `gen_tcp` to your list of dependencies in `mix.exs`:
-
+Uncomment 2 lines in application.ex:
 ```elixir
-def deps do
-  [
-    {:gen_tcp, "~> 0.1.0"}
-  ]
-end
+       %{id: GenTcp.Server, start: {GenTcp.Server, :start_link, [[]]}},
+       %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/gen_tcp>.
+Start the server by command: `iex -S server`
 
+Run these command:
+```elixir
+alias GenTcp.Client
+Client.send_to_server("Hello")
+Client.close_socket()
+```
+
+## Second Example
+
+Client is run on Elixir service, Server is run on Python service.
+
+Comment 2 lines in application.ex:
+```elixir
+       %{id: GenTcp.Server, start: {GenTcp.Server, :start_link, [[]]}},
+       %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
+```
+
+Terminal 1:
+
+Start the server by command: `iex -S server`
+
+Run these commands to simulate the client-server:
+
+```elixir
+alias GenTcp.ServerInteracPy
+ServerInteracPy.start_server()
+```
+
+Terminal 2:
+
+Run these commands:
+
+```elixir
+cd lib/gen_tcp
+python3 client_py.py
+```
