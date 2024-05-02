@@ -29,7 +29,7 @@ defmodule GenTcp.Server do
 
 
   @impl true
-  def handle_info({:tcp_closed, socket}, state) do
+  def handle_info({:tcp_closed, _socket}, state) do
     Logger.info "Server: received tcp_closed from client"
     new_state = Map.delete(state, :socket)
     {:noreply, new_state}

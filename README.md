@@ -10,7 +10,7 @@ Uncomment 2 lines in application.ex:
        %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
 ```
 
-Start the server by command: `iex -S server`
+Start the server by command: `iex -S mix`
 
 Run these command:
 ```elixir
@@ -31,7 +31,7 @@ Comment 2 lines in application.ex:
 
 Terminal 1:
 
-Start the server by command: `iex -S server`
+Start the server by command: `iex -S mix`
 
 Run these commands to simulate the client-server:
 
