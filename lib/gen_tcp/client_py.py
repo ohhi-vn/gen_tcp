@@ -14,6 +14,7 @@ while True:
   byt = st.encode('ascii')
   s.sendall(byt)
 
+  print('Client waits 5s to close socket')
   time.sleep(5)
   print('Client close socket')
   s.close()

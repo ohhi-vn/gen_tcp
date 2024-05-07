@@ -28,7 +28,8 @@ defmodule GenTcp.Client do
         Logger.info "Client: connected successfully to #{@host} !"
         {:ok, %{state | socket: socket}}
       {:error, reason} ->
-        disconnect(state, reason)
+        Logger.info "Client: disconnected: #{reason}"
+        {:stop, :normal}
     end
   end
 
@@ -72,11 +73,6 @@ defmodule GenTcp.Client do
   @impl true
   def terminate(_reason, _) do
     :ok
-  end
-
-  defp disconnect(state, reason) do
-    Logger.info "Client: disconnected: #{reason}"
-    {:stop, :normal, state}
   end
 
 end

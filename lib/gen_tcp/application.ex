@@ -16,12 +16,12 @@ defmodule GenTcp.Application do
     ]
 
     children = [
-      {Cluster.Supervisor, [topologies, [name: GenTcp.ClusterSupervisor]]}
+      {Cluster.Supervisor, [topologies, [name: GenTcp.ClusterSupervisor]]},
       # Starts a worker by calling: GenTcp.Worker.start_link(arg)
       # {GenTcp.Worker, arg}
 
-      # %{id: GenTcp.Server, start: {GenTcp.Server, :start_link, [[]]}},
-      # %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
+      %{id: GenTcp.Server, start: {GenTcp.Server, :start_link, [[]]}},
+      %{id: GenTcp.Client, start: {GenTcp.Client, :start_link, [[]]}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

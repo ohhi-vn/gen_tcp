@@ -70,6 +70,9 @@ defmodule GenTcp.Server do
   defp acceptor(socket) do
     {:ok, client_socket} = :gen_tcp.accept(socket)
     Logger.info("Server: tcp_server: #{inspect(Process.whereis(:tcp_server))}.")
+    # Assigns a new controlling process Pid to Socket.
+    # The controlling process is the process that receives messages from the
+    # socket.
     :ok = :gen_tcp.controlling_process(client_socket,
                                        Process.whereis(:tcp_server))
     Logger.info "Server: Client connected successfully"
